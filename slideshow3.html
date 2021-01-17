@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW CSS ONLY</title>
+
+
+</head>
+<body>
+
+
+    <img id="slide" style="width: 500px; height: 300px;">
+
+
+
+
+    <script>
+        let i = 0
+        let image = ['img/preview1.jpg', 'img/preview2.jpg', 'img/preview3.jpg'];
+        const changeImg = () => {
+            document.getElementById('slide').src = image[i]
+            // bisa pke set attr
+            if (i < image.length) {
+                i++
+            } else {
+                i = 0;
+            }
+
+            setTimeout('changeImg()', 1000)
+        }
+
+        window.onload(changeImg());
+    </script>
+</body>
+</html>

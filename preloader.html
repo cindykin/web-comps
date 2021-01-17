@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preloader page</title>
+    <style>
+        /* animasi utk isi halaman opsional */
+        .wrapper {
+            display: none;
+            text-align: center;
+            position: relative;
+            animation-name: muncul;
+            animation-duration: 2s;
+        }
+
+        @keyframes muncul { 
+        from{ bottom:-100px; opacity:0 } 
+        to{ bottom:0; opacity:1 }
+        }
+
+
+
+
+
+        
+
+        .loader {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px solid black; /* warna border luar */
+            border-top: 10px solid blue; /* warna loading yg bergerak */
+            animation: wuhu 2s linear infinite; /* animasi blue bergerak */
+
+
+            /* property tambahan bila menjadi preloader */
+            margin: -75px 0 0 -75px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+        }
+
+        @keyframes wuhu {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body onload="showpage()"> <!-- onload = setelah elemen selesai diload lakukan fungsi berikut -->
+
+    <div class="loader"></div>  <!-- yg loadernya -->
+
+    <div class="wrapper">  <!-- isi konten halaman -->
+        <h1>TADA ! </h1>
+        <p>preloader animation hehe</p>
+    </div>
+
+
+
+    <script>
+        var myVar;
+        
+        function showpage() { 
+            // saat fungsi terpanggil pasang timer setelah 5 detik jalankan fungsi pagepop/tampilkan halaman
+          myVar = setTimeout(pagepop, 5000); 
+        }
+        
+        function pagepop() {
+            // hilangkan loader
+          document.querySelector(".loader").style.display = "none";
+            // tampilkan halaman
+          document.querySelector(".wrapper").style.display = "block";
+        }
+
+    </script>    
+
+</body>
+</html>

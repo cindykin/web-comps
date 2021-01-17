@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOTER</title>
+    <script src="https://kit.fontawesome.com/498aef9535.js" crossorigin="anonymous"></script>
+    <style>
+
+        /* posisi supaya tetap dibawh jd aneh malah */
+        .sweet{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .foo {
+            position: fixed;
+            left: 0;
+            bottom: 50px;
+            width: 100%;
+        }
+
+
+        .foo {
+            display: grid;
+            grid-template-columns: 250px 200px 200px 350px;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: silver;
+            line-height: 1.5;
+            padding: 5px;
+        }
+        
+        .block2, .block3 {
+            display: flex;
+            flex-direction: column;
+        }
+        .block1, .block2, .block3, .block4 {
+            justify-self: center;
+            padding: 10px;
+        }
+
+        .inputcont {
+            display: flex;
+        }
+        
+        input:focus {
+            width: 230px;
+        }
+        .ico {
+            background: coral;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            min-width: 20px;
+        }
+
+        input {
+            border: 2px solid coral;
+        }
+        
+        button > a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .subs:hover {
+            opacity: 1;
+        }
+
+        .subs {
+            background-color: coral;
+            border: none;
+            padding: 10px;
+            opacity: .9;
+        }
+
+        .sweet {
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            align-items: center;
+            background-color: gray;
+            color: white;
+        }
+
+        .socmed {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .sos {
+            border: 3px solid #000;
+            color: white;
+            width: 20px;
+            height: 20px;
+            padding: 10px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .sos:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="foo">
+        <div class="block1">
+            <pre><i class="fas fa-dove fa-5x"></i>&nbsp;&nbsp;<i class="fab fa-evernote fa-5x"></i></pre>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique!<br><br>
+            <div class="socmed">
+                <div class="sos"><i class="fab fa-facebook-f fa-lg"></i></div>
+            
+                <div class="sos"><i class="fab fa-instagram fa-lg"></i></div>
+
+                <div class="sos"><i class="fab fa-whatsapp fa-lg"></i></div>
+            </div>
+
+            
+
+        </div>
+
+        <div class="block2">
+            <p class="big">RELATED</p>
+            <a href="">Lorem, ipsum.</a>
+            <a href="">Lorem, ipsum.</a>
+            <a href="">Lorem, ipsum.</a>
+        </div>
+
+        <div class="block3">
+            <p class="big">RELATED</p>
+            <a href="">Lorem, ipsum.</a>
+            <a href="">Lorem, ipsum.</a>
+            <a href="">Lorem, ipsum.</a>
+        </div>
+
+        <div class="block4">
+            <p class="supabig">Subscribe to our newsletters</p>
+            <div class="inputcont">
+                <i class="far fa-envelope ico"></i>
+                <input type="text" placeholder=" snape@severus.co">
+                <button class="subs"><a href="">send</a></button>
+            </div><br>
+            <i class="fas fa-phone-alt"></i> +623041234 <br>
+            <i class="fas fa-envelope-open-text"></i> lorem@boost.com <br>
+        </div>
+    </div>
+
+
+    <div class="sweet">
+        Made with <pre> <i class="fas fa-heart" style="color: red;"></i> </pre>in Palembang
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVING EYES</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgb(30, 204, 210);
+        }
+
+        .face {
+            display: flex;
+            background-color: yellow;
+            height: 300px;
+            width: 300px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .face::before {
+            content: '';
+            position: absolute;
+            top: 330px;
+            width: 180px;
+            height: 80px;
+            background-color: #ff3b3b;
+            border-bottom-left-radius: 130px;
+            border-bottom-right-radius: 130px;
+            transition: .15s;
+
+        }
+        .face:hover::before {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+
+        }
+        .eyes {
+            position: relative;
+            display: flex;
+            top : -50px;
+            justify-content: center;
+            
+        }
+        .eye {
+            margin: 0 10px;
+            width: 80px;
+            height: 80px;
+            display: block;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .eyes .eye::before {
+            content: '';
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 35px;
+            background: black;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="face">
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </div>
+</body>
+</html>

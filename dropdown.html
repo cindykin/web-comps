@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HOVER DROPDOWN</title>
+    <style>
+        .wrapper {
+            position: relative;
+            /* utk nahan anaknya si absolute */
+        }
+        
+        .dpcontent {
+            display: none;
+            /* diilangin dulu kalo belom dipencet */
+            position: absolute;
+            /* supaya ga ganggu tata letak */
+        }
+        
+        .wrapper:hover .dpcontent {
+            display: block;
+            /* pas dihover tampilkan */
+            /* gaya */
+            width: 120px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dpcontent>a {
+            display: block;
+            /* supaya 1 link enter kebwah */
+
+            /* gaya */
+            text-decoration: none;
+            /* garis bwh hilang */
+            color: black;
+            padding: 10px;
+        }
+        
+
+        /* STYLING */
+        .dropdown {
+            background-color: bisque;
+            width: 100px;
+            padding: 10px;
+        }
+        
+        .dpcontent>a:hover {
+            background-color: #eee;
+            /* kasih efek pas dihover*/
+        }
+        
+        .wrapper:hover .dropdown {
+            background-color: rgb(241, 210, 172);
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <h2>Dropdown Menu</h2>
+    <p>Move the mouse over the button to open the dropdown menu.</p>
+
+    <div class="wrapper">
+        <div class="dropdown">Dropdown</div>
+        <div class="dpcontent">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+
+    <p><strong>Note:</strong> We use href="#" for test links. In a real web site this would be URLs.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROUND DIV ROUND IMAGE DESCRIPTION</title>
+    <script src="https://kit.fontawesome.com/498aef9535.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .mini {
+            margin: auto;
+            margin-top: 50px;
+            width: 500px;
+            height: 100px;
+            font-size: 30px;
+            border-radius: 50px; 
+            text-decoration: none;
+            display: grid;
+            grid-template-columns: .5fr 1fr .3fr;
+            justify-items: center;
+            align-items: center;
+            color: white;
+
+            /* box-shadow: 0px 10px 15px 5px #FF00D5, 0px -10px 15px 5px #00FFE5;  atas bawah */
+            border-top: 5px solid #00FFE5;
+            border-bottom: 5px solid #FF00D5;
+        }
+
+        
+        .img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid white;
+            padding: 10px;
+        }
+
+        .mini > a {
+            text-decoration: none;
+            color: white;
+            letter-spacing: 5px;
+        }
+
+        .mini:hover {
+            box-shadow: -5px -5px 15px 5px #00FFE5, 5px 5px 15px 5px #FF00D5, inset -5px -5px 3px 0  #FF00D5, inset 5px 5px 3px 0 #00FFE5;
+            /* diagonal */
+        }
+
+        .mini:hover .img {
+            box-shadow: -5px -5px 15px 5px #00FFE5, 5px 5px 15px 5px #FF00D5;
+        }
+    </style>
+</head>
+<body>
+    <div class="mini">
+        <div class="img">
+            <i class="fab fa-tiktok"></i>
+        </div>
+        <a href="">TikTok</a>
+        <i class="fas fa-angle-right"></i>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello, world!</title>
+    <style>
+
+        .container {
+            width: 80%;
+            max-width: 600px; 
+            /* maximal lebar 600 walau dibuka dilayar lebih bsr dr 600 | klo layar lbh kcl dari 600 width mjd responsive */
+            margin:50px auto;
+        }
+        .acc-btn {
+            width: 100%;
+            background-color:aqua;
+            padding: 15px 20px;
+            transition: background-color 0.2s linear;
+        }
+        /* .acc-btn:after {    // utk icon
+            font-family: FontAwesome;
+            content: '\f150';
+            font-family: "fontawesome";
+            font-size: 14px;
+            float: right;
+        }
+        button.accordion.is-open:after {
+            content: '\f056';
+        } */
+        .acc-btn:hover, .acc-btn.acc-active {
+            background-color: blue;
+        }
+        .acc-content {
+            background-color: blue;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-in-out;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <button class="acc-btn btn">Streaming</button>
+            <div class="acc-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolores, cum voluptates exercitationem ea sed eligendi saepe, enim voluptate eos voluptas. Placeat molestias enim aliquid dicta voluptate veritatis saepe veniam aut! Nobis quibusdam quo quasi neque quidem corrupti officia. Adipisci consequuntur eaque dolorem, excepturi nisi recusandae? Veritatis fugiat rerum odit.</p>
+            </div>
+        </div>
+        <div class="row">
+            <button class="acc-btn btn">Streaming</button>
+            <div class="acc-content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolores, cum voluptates exercitationem ea sed eligendi saepe, enim voluptate eos voluptas. Placeat molestias enim aliquid dicta voluptate veritatis saepe veniam aut! Nobis quibusdam quo quasi neque quidem corrupti officia. Adipisci consequuntur eaque dolorem, excepturi nisi recusandae? Veritatis fugiat rerum odit.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+const accBtns = document.querySelectorAll('.acc-btn');
+accBtns.forEach((accordion) => {
+  accordion.addEventListener('click', function () {
+    this.classList.toggle('acc-active');
+    
+    let content = this.nextElementSibling;    
+    if (content.style.maxHeight) {
+      //this is if the accordion is open
+      content.style.maxHeight = null;    
+    } else {
+      //if the accordion is currently closed
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }  
+  });
+});
+</script>
+
+  </body>
+</html>

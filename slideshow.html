@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    #slideshow {
+        margin: 80px auto;
+        position: relative;
+        width: 240px;
+        height: 240px;
+        padding: 10px;
+    }
+
+    #slideshow > div {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+    </style>
+</head>
+<body>
+    
+
+<div id="slideshow">
+    <div><img src="https://picsum.photos/500" alt=""></div>
+    <div><img src="https://picsum.photos/300" alt=""></div>
+    <div>
+      Pretty cool eh? This slide is proof the content can be anything.
+    </div>
+ </div>
+ 
+
+ 
+<script>
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() {
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+}, 3000);
+</script> 
+
+
+</body>
+</html>

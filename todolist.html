@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST WO DATABASE</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    
+<h1>TO DO LIST</h1>
+
+<h3>try to list your to do!</h3>
+<input type="text" id="todo"><button onclick="add()">Add !</button>
+
+
+<br><br><hr>
+
+<h2>Your to do list for today :</h2>
+<ul id="list">
+    <li>try to add some !</li>
+    <li>drink milk</li>
+</ul>
+
+
+
+<script>
+const add = () => {
+    let todo = document.getElementById('todo').value;
+    const el = document.createElement('li');
+    const elText = document.createTextNode(todo);
+
+    el.appendChild(elText);
+
+    let home = document.getElementById('list')
+    home.appendChild(el)
+}
+</script>
+</body>
+</html>

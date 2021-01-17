@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW CSS ONLY RESPONSIVE</title>
+    <style>
+        #slider {
+            overflow: hidden;
+        }
+
+        figure {
+            position: relative;
+            width: 500%;
+            margin: 0;
+            left: 0;
+            animation: 20s slider infinite;
+        }
+
+        figure > img {
+            width: 20%;
+        }
+
+
+        @keyframes slider {
+            /* dobel = memberi jeda */
+            0% {
+                left: 0;
+            }
+            20% {
+                left: 0;
+            }
+            40% {
+                left: -100%;
+            }
+            60% {
+                left: -100%;
+            }
+            80% {
+                left: -200%;
+            }
+            100% {
+                left: -200%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="slider">
+        <figure>
+            <img src="img/preview1.jpg">
+            <img src="img/preview2.jpg">
+            <img src="img/preview3.jpg">
+        </figure>
+    </div>
+
+
+    dapat dari youtube, kalo gambar berkurang, persen harus dikurangi, animasi harus dikurangi
+</body>
+</html>
