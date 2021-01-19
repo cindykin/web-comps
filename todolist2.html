@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST IMPROVED</title>
+    <style>
+body {
+	background: #04A1BF;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.intro {
+	margin: 30px 0px;
+	font-weight: bold;
+}
+
+#add {
+	border: none;
+	padding: 5px 15px;
+	border-radius: 5px;
+	color: #04A1BF;
+	background-color: #025F70;
+	transition: all 0.75s ease;
+	-webkit-transition: all 0.75s ease;
+	-moz-transition: all 0.75s ease;
+	-ms-transition: all 0.75s ease;
+	-o-transition: all 0.75 ease;
+	font-weight: normal;
+}
+
+#add:hover{
+	background-color: #02798F;
+	color: #FFCD5D;
+}
+
+ul {
+	text-align: left;
+	margin-top: 20px;
+}
+
+
+li {
+	list-style: none;
+	padding: 10px 20px;
+	color: #ffffff;
+	text-transform: capitalize;
+	font-weight: 600;
+	border: 2px solid #025f70;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background: #4EB9CD;
+	transition: all 0.75s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5 ease;
+}
+
+li:hover {
+	background: #76CFE0;
+}
+
+li > button {
+	font-weight: normal;
+	background: none;
+	border: none;
+	float: right;
+	color: #025f70;
+	font-weight: 800;
+}
+
+input {
+	border-radius: 5px;
+	min-width: 65%;
+	padding: 5px;
+	border: none;
+}
+
+
+.done {
+	background: #51DF70 !important;
+	color: #00891E;
+}
+
+.delete {
+	display: none;
+}
+    </style>
+</head>
+<body>
+	<div class="container">
+		<h1>TO DOs</h1>
+
+		<div class="row">
+			<div class="helpText col-12">
+				<p id="first">Enter text into the input field to add items to your list.</p>
+				<p id="second">Click the item to mark it as complete.</p>
+				<p id="third">Click the "X" to remove the item from your list.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12">
+				<input id="userInput" type="text" placeholder="New item..." maxlength="27">
+				<button id="add">Add !</button>
+			</div>
+		</div>
+
+		<!-- Empty List -->
+		<div class="row">
+			<div class="listItems col-12">
+				<ul class="col-12 offset-0 col-sm-8 offset-sm-2">
+				</ul>
+			</div>
+		</div>
+
+    </div>
+    
+
+
+<script>
+var addButton = document.getElementById("add");
+var input = document.getElementById("userInput");
+var ul = document.querySelector("ul");
+var item = document.getElementsByTagName("li");
+
+
+function createListElement() {
+    // CREATE ELEMENT LI AND EMPTY THE INPUT FIELD
+	var li = document.createElement("li");
+	li.appendChild(document.createTextNode(input.value)); 
+	ul.appendChild(li);
+	input.value = ""; //Reset text input field
+
+
+
+	// IF DONE
+	// because it's in the function, it only adds it for new items
+	li.addEventListener("click", function(){
+        li.classList.toggle("done");
+    })
+    
+
+    
+	// IF WANT TO DELETE
+	const delBtn = document.createElement("button");
+	delBtn.appendChild(document.createTextNode("X"));
+	li.appendChild(delBtn);
+	delBtn.addEventListener("click", function(){
+        li.classList.add('delete')
+    });
+}
+
+
+
+
+
+
+function addListOnEnter(event) {
+    if (input.value.length > 0 && event.which === 13) { //this now looks to see if you hit "enter"/"return"
+        //the 13 is the enter key's keycode, this could also be display by event.keyCode === 13
+        createListElement();
+    } 
+}
+
+
+function addListOnClick(){
+	if (input.value.length > 0) { //makes sure that an empty input field doesn't create a li
+		createListElement();
+	}
+}
+
+
+addButton.addEventListener("click", addListOnClick);
+
+input.addEventListener("keypress", addListOnEnter);
+</script>
+</body>
+</html>

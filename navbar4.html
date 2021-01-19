@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHANGING NAVBAR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: black;
+            min-height: 200vh;
+        }
+        header {
+            padding: 25px 50px 25px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 1s;
+            z-index: 5;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            transition: 1s;
+        }
+        .logo {
+            position: relative;
+        }
+        ul {
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+        .bgimage {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url(img/2.jpg);
+            background-size: cover;
+        }
+        .scrolling {
+            background-color: white;
+            padding: 18px 48px 18px 48px;
+        }
+        .scrolling .logo, .scrolling ul li a{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="#" class="logo">LOOGO</a>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Pricing</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </header>
+
+    <section class="bgimage"></section>
+    <script>
+        window.addEventListener('scroll', function(){
+            const navbar = document.querySelector('header');
+            navbar.classList.toggle('scrolling', window.scrollY > 0);
+        })
+    </script>
+</body>
+</html>
