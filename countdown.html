@@ -3,8 +3,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-    * {
-        font-size: 1.5em;
+    body {
+        font-size: 2em;
+        height: 100vh;
     }
 
     #display-time {
@@ -18,12 +19,10 @@
 <body>
 
 Insert date : <br>
-ex (15 Jan 2022) <br>
 <input type="text" id="date" value="15 Jan 2022"> <br>
 Insert time : <br>
-ex (15:00:00) <br>
 <input type="text" id="time" value="15:00:00"> <br>
-<button onclick="cd()">Start Countdown</button>
+<button onclick="masterCountdown()">Start Countdown</button>
 <p id="display-time"></p>
 
 
@@ -37,35 +36,36 @@ ex (15:00:00) <br>
 <script>
 // Set the date we're counting down to
 
-function cd() {
+function masterCountdown() {
 let date = document.querySelector('#date').value;
 let time = document.querySelector('#time').value;
-let dateTarget = new Date(`${date} ${time}`).getTime();
+let dateTarget = new Date(`${date} ${time}`);
 
 // Update the count down every 1 second
 let countdown = setInterval(function() {
   // Get today's date and time
-  let today = new Date().getTime();
+  // let today = new Date().getTime() sama spt ini
+  let today = new Date();
     
   // Find the distance between now and the count down date
-  let result = dateTarget - today;
+  let totalSeconds = (dateTarget - today) / 1000;
     
   // Time calculations for days, hours, minutes and seconds
-  let days = Math.floor(result / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((result % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((result % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((result % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
+  let days = Math.floor(totalSeconds / 3600 / 24);
+  let hours = Math.floor(totalSeconds / 3600 ) % 24; 
+  let minutes = Math.floor(totalSeconds / 60) % 60;
+  let seconds = Math.floor(totalSeconds % 60);
+  // Output the totalSeconds in an element with id="demo"
   document.getElementById("display-time").innerHTML = `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds left `;
     
   // If the count down is over, write some text 
-  if (result < 0) {
+  if (totalSeconds < 0) {
     clearInterval(countdown);
     document.getElementById("display-time").innerHTML = `Time's up !`;
   }
 
 }, 1000);
+
 }
 </script>
 

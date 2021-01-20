@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ APP</title>
+    <style>
+        .quiz {
+            margin: auto;
+            transform: translate(0, 50%);
+            width: 50vh;
+            height: 50vh;
+            font-size: 2em;
+            text-align: center;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="quiz">
+        <div class="question">question</div>
+        <div class="choices">
+            <input type="radio" id="a" name="choice" class="choice">
+            <label for="a">Choice A</label><br>
+            <input type="radio" id="b" name="choice" class="choice">
+            <label for="b">Choice A</label><br>
+            <input type="radio" id="c" name="choice" class="choice">
+            <label for="c">Choice A</label><br>
+            <input type="radio" id="d" name="choice" class="choice">
+            <label for="d">Choice A</label><br>
+        </div>
+        <button class="next">NEXT</button>
+    </div>
+    
+
+
+<script>
+    const quizData = [
+        {
+            question : 'what time is it ?',
+            a  
+        }
+    ]
+    const question = document.querySelector('.question');
+    const nextBtn = document.querySelector('.next');
+    
+    function nextQuestion() {
+        
+    }
+    nextBtn.addEventListener('click', nextQuestion);
+</script>
+</body>
+</html>
