@@ -3,101 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESPONSIVE NAVBAR</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>NAVBAR</title>
     <style>
-        .navall{
-            background-color: black;
-            overflow: hidden;
-            color: white;
-        }
-
-        .topnav {
-            float: right;
-        }
-
-        /* para nav style */
-        .topnav a {
-            float: left;
-            color: white;
-            text-align: center;
-            padding: 15px 17px;
-            text-decoration: none;
-            font-size: 15px;
-        }
-
-        .active {
-            background-color: white;
-            color: black !important;
-        }
-
-        .dropdown {
-            float: left;
-            overflow: hidden;
-        }
-
-        /* style button diilangkan */
-        .dropdown .dropbtn {
-            font-size: 15px;
-            border: none;
-            outline: none;
-            color: white;
-            padding: 15px 17px;
-            background-color: inherit;
-            font-family: inherit;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .tester {
+            background: url(img/2.jpg);
+            background-position: center;
+            height: 800px;
+            background-size: cover;
+        }
+        .master-nav {
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+            font-size: 1.3em;
+            position: fixed;
+            width: 100%;
+            transition: 1s;
+        }
+        .master-nav > img {
+            width: 58px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
 
-        /* isi dropdown */
-        .dropdown-content {
+        .master-nav .ham-btn {
+            color: #e5e5e5;
+            font-size: 1.3em;
             display: none;
-            position: absolute;
-            background-color: black;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+        }
+        
+        .nav {
+            text-decoration: none;
+            font-weight: bold;
+            color: #e5e5e5;
+        }
+        
+        .master-nav.scrolling {
+            padding: 8px 0;
+            background: #e5e5e5;
         }
 
-
-        .topnav a:hover, .dropdown:hover .dropbtn {
-            background-color: rgb(92, 92, 92);
-            color: white;
+        .nav.scrolling-text{
+            color: black;
         }
+        
 
-        .dropdown-content a:hover {
-            background-color: rgb(92, 92, 92);
-            color: white;
+        @media (max-width: 576px) {
+            .master-nav .ham-btn {
+                display: inline;
+            }
+            .nav {
+                display: none;
+            }
+            .nav.active {
+                display: inline;
+            }
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+        
     </style>
 </head>
 <body>
-<div class="navall">
-    <div class="logo">LOGO</div>
-
-    <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-    <div class="dropdown">
-        <button class="dropbtn">
-            Dropdown <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
+    <div class="master-nav">
+        <img src="img/logo.png" alt="LOGO">
+        <div class="nav-menu">
+            <a href="" class="nav">MENU</a>
+            <a href="" class="nav">MENU</a>
+            <a href="" class="nav">MENU</a>
+            <a href="" class="nav">MENU</a>
         </div>
+        <span class="ham-btn">☰</span>
     </div>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-    </div> 
-</div>
 
 
-belom selesai ak bingung pake float
+    <div class="tester"></div>
+
+<script>
+    
+const navbar = document.querySelector('.master-nav');
+const navmenu = document.querySelectorAll('.nav');
+
+window.addEventListener('scroll', function(){
+    navbar.classList.toggle('scrolling', window.scrollY > 0);
+    for(let i = 0; i < navmenu.length; i++) {
+        navmenu[i].classList.toggle('scrolling-text', window.scrollY > 0);
+    }
+})
+
+
+const hamBtn = document.querySelector('.ham-btn');
+hamBtn.addEventListener('click', function() {
+    navmenu.classList.toggle = 'active';
+})
+</script>
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTIFICATION</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(img/1.jpg);
+            background-position: center;
+            background-size: cover;
+            font-size: 2em;
+        }
+        #notif-parent {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        #notif-parent div {
+            background: red;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="trigger-btn">Click me to show toast notification</button>
+    <div id="notif-parent"></div>
+
+    <script>
+       const triggerBtn = document.getElementById('trigger-btn');
+       triggerBtn.addEventListener('click', function(){
+           const notif = document.createElement('div');
+           notif.appendChild(document.createTextNode('do not forget to pay your debt'))
+
+           const notifParent = document.getElementById('notif-parent');
+           notifParent.appendChild(notif);
+       }) 
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODAL</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        #master-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #master-modal .active {
+            display: flex;
+        }
+
+        #modal {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            position: relative;
+            width: 500px;
+        }
+
+        #modal button {
+            font-size: 2em;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="triggerBtn">Click me to displaying button</button>
+    <div id="master-modal">
+        <div id="modal">
+            <button id="close">x</button>
+            hello
+        </div>
+    </div>
+
+<script>
+    const triggerBtn = document.querySelector('#triggerBtn');
+    const masterModal = document.querySelector('#master-modal');
+    triggerBtn.addEventListener('click', function() {
+        masterModal.classList.add = 'active';
+    })
+</script>
+</body>
+</html>
