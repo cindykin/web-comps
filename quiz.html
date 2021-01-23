@@ -5,33 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUIZ APP</title>
     <style>
-        .quiz {
-            margin: auto;
-            transform: translate(0, 50%);
-            width: 50vh;
-            height: 50vh;
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .master-quiz {
+            width: 70vh;
             font-size: 2em;
-            text-align: center;
             background-color: aquamarine;
+            display: none;
+        }
+        .master-quiz.ready {
+            display: block;
         }
     </style>
 </head>
 <body>
     
-    <div class="quiz">
+    <div class="master-quiz">
+        <div class="quest-number">Number</div>
         <div class="question">question</div>
         <div class="choices">
             <input type="radio" id="a" name="choice" class="choice">
-            <label for="a">Choice A</label><br>
+            <label for="a" class="a">Choice A</label><br>
             <input type="radio" id="b" name="choice" class="choice">
-            <label for="b">Choice A</label><br>
+            <label for="b" class="b">Choice B</label><br>
             <input type="radio" id="c" name="choice" class="choice">
-            <label for="c">Choice A</label><br>
-            <input type="radio" id="d" name="choice" class="choice">
-            <label for="d">Choice A</label><br>
+            <label for="c" class="c">Choice C</label><br>
         </div>
-        <button class="next">NEXT</button>
+        <div class="status"></div>
     </div>
+    <button class="next">GO !</button>
     
 
 
@@ -43,17 +51,99 @@
                 a : 'absolutely',
                 b : 'you can',
                 c : 'youre wasting time',
-            }
-            
-        }
+            },
+            correct :'c'  
+        },
+        {
+            question : 'just trying ?',
+            choices : {
+                a : 'not trying',
+                b : 'pls fix the layout',
+                c : 'it is just dummy question',
+            },
+            correct :'a'
+        },
+        {
+            question : 'omg the layout ?',
+            choices : {
+                a : 'the best thing on this just the js',
+                b : 'dont be mad at this layout',
+                c : 'pls fix it when you have time',
+            },
+            correct :'a'
+        },
+
     ]
+
+    // catch all question and answer
+    // replace the inner with object
+    // set current question and increst the value when next btn is clicked
+    // make conditional if at the end of question display something
+    // catch what is selected
+    let questNumber = document.querySelector('.quest-number');
+    const masterQuiz = document.querySelector('.master-quiz')
     const question = document.querySelector('.question');
+    const choiceA = document.querySelector('label.a');
+    const choiceB = document.querySelector('label.b');
+    const choiceC = document.querySelector('label.c');
     const nextBtn = document.querySelector('.next');
+    let choices = document.querySelectorAll('.choice');
+
+    let currentQuest = 0;
+    let score = 0;
     
-    function nextQuestion() {
-        
+    function loadQuest() {
+        masterQuiz.classList.add('ready');
+        unSelect();
+
+        questNumber.innerHTML = `Number ${currentQuest + 1}`;
+        question.innerHTML = quizData[currentQuest].question;
+        choiceA.innerHTML = quizData[currentQuest].choices['a'];
+        choiceB.innerHTML = quizData[currentQuest].choices['b'];
+        choiceC.innerHTML = quizData[currentQuest].choices['c'];
+
+        currentQuest++;
     }
-    nextBtn.addEventListener('click', nextQuestion);
+
+    function getSelected() {
+        let answer = undefined;
+        choices.forEach((choice)=> {
+            if(choice.checked) {
+                answer = choice.id;
+            }
+        })
+
+        return answer;    
+    }
+
+    function unSelect() {
+        choices.forEach((choice) => {
+            choice.checked = false;
+        });
+    }
+
+
+    nextBtn.addEventListener('click', () => {
+    if(currentQuest !== 0 && currentQuest < quizData.length) {
+        let choices = document.querySelectorAll('.choice');
+        const answer = getSelected();
+        if(answer) {
+            if(answer === quizData[currentQuest].correct) {
+                score++;
+            }
+        }
+    }
+                
+        if (currentQuest < quizData.length) {
+            loadQuest();
+        } else {
+            masterQuiz.innerHTML =
+            `<h1>Congrats you've finished this quiz!!!<br>
+            You got ${score}/${quizData.length} !</h1>
+            <button onclick="location.reload()>Play Again</button>`;
+            nextBtn.style.display = 'none';
+        }
+    })
 </script>
 </body>
 </html>

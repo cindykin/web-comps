@@ -25,7 +25,7 @@
             justify-content: center;
         }
 
-        #master-modal .active {
+        #master-modal.active {
             display: flex;
         }
 
@@ -51,16 +51,22 @@
     <div id="master-modal">
         <div id="modal">
             <button id="close">x</button>
-            hello
+            hello,
+            i love you but i'm lying..
         </div>
     </div>
 
 <script>
     const triggerBtn = document.querySelector('#triggerBtn');
     const masterModal = document.querySelector('#master-modal');
-    triggerBtn.addEventListener('click', function() {
-        masterModal.classList.add = 'active';
+    const closeBtn = document.querySelector('#close')
+    triggerBtn.addEventListener('click', () => {
+        masterModal.classList.add('active');
     })
+    closeBtn.addEventListener('click', () => {
+        masterModal.classList.remove('active');
+    })
+    
 </script>
 </body>
 </html>
