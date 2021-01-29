@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOTER</title>
+    <style>
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            place-items: center;
+            background: #e5e5e5;
+        }
+
+        .col1 a, .col2 ul li a {
+            padding-bottom: 5px;
+        }
+        
+        .footer .col1 a, .col2 ul li a {
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .mini-footer {
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .col2, .col4 {
+                display: none;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="col1">
+            <h3>Akses Cepat</h3>
+            <a href="">Anime Summer 2039</a>
+            <a href="">Trending</a>
+            <a href="">A - Z List</a>
+            <a href="">Genre List</a>
+            <a href="">TV/Series List</a>
+            <a href="">Movies List</a>
+        </div>
+        <div class="col2">
+            <h3>Genre/Kategori</h3>
+            <ul>
+                <li><a href="">Action</a></li>
+                <li><a href="">Adventure</a></li>
+                <li><a href="">Creepy</a></li>
+                <li><a href="">Romance</a></li>
+                <li><a href="">Thiller</a></li>
+                <li><a href="">Comedy</a></li>
+            </ul>
+        </div>
+        <div class="col3">
+            Discord Server <br>
+            Facebook API Preview Page
+        </div>
+        <div class="col4">
+            Instagram API Preview Page
+            atau follow > fb ig twit jadi satu
+        </div>
+    </div>
+    <div class="mini-footer">
+        2021 (C) DUARNIME | MADE WITH CRISPY SNACC
+    </div>
+</body>
+</html>

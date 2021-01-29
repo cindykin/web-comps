@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK MODE SIMPLE TOGGLE</title>
+    <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        min-height: 100vh;
+        transition: 1s;
+    }
+
+    #trigger-btn {
+        transform: scale(2);
+    }
+
+    body.dark {
+        color: white;
+        background: black;
+    }
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="trigger-btn">TOGGLE MODE
+
+<div class="content">
+    <h1>titleteletilte</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, vitae enim! Necessitatibus, magnam obcaecati minima ut voluptates nostrum laudantium culpa temporibus quidem quae vero facere doloremque, facilis accusamus, minus perspiciatis iusto voluptas tempore dignissimos! Quod eum consequuntur placeat, accusamus voluptas aut tempora aspernatur expedita eligendi dignissimos sunt iste sit officiis ut enim vel porro unde beatae nobis. Iste aliquid, ex exercitationem molestiae deleniti porro maiores sint vero quisquam similique nulla dignissimos quos aliquam vitae at officia voluptatum totam reprehenderit expedita rem, iure quidem nobis! Consectetur, veniam at assumenda nam nesciunt sunt iusto sed accusantium exercitationem saepe non neque tempore repellendus.</p>
+</div>
+
+<script>
+document.querySelector('#trigger-btn').addEventListener('change', (e) => {
+    // console.log(e.target.checked)
+    document.body.classList.toggle('dark', e.target.checked);
+})
+</script>
+</body>
+</html>

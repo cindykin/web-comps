@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RANDOM BG</title>
+</head>
+<body>
+    
+<button class="trigger-btn">Click me to see magicc lol</button>
+
+<script>
+    const triggerBtn = document.querySelector('.trigger-btn');
+    
+    triggerBtn.addEventListener('click', ()=> {
+        document.body.style.background = randomBg();
+    })
+
+    let randomBg = () => {
+        return `hsl(${Math.random() * 100}, 100%, 50%)`;
+    }
+    
+</script>
+</body>
+</html>

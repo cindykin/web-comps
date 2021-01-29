@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMOJI RAINING</title>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    .emoji {
+        position: fixed;
+        top: -1vh;
+        font-size: 2rem;
+        transform: translateY(0);
+        animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(105vh);
+        }
+    }
+    </style>
+<body>
+
+
+<script>
+    function createEmoji () {
+        const emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.innerHTML = '😜️';
+        emoji.style.left = Math.random() * 100 + 'vw';
+        emoji.style.animationDuration = Math.random() * 5 + "s";
+        document.body.appendChild(emoji);
+        // console.log(Math.random() * 100 + 'vw')
+
+        // delete emoji after 5 sec
+        setTimeout(() => {
+            emoji.remove()
+        }, 5000);
+    }
+    setInterval(createEmoji, 200)
+</script>
+</body>
+</html>
