@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODAL</title>
+
+<style>
+    
+    /* The modal's background */
+    .modal {
+        display: none;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Display the modal when targeted */
+    .modal:target {
+        display: flex;
+    }
+    
+    
+    /* The modal's content */
+    .modal-box {
+        display: grid;
+        grid-template-columns: 1fr 30px;
+        place-items: center;
+        background: white;
+        position: relative;
+        width: 50vw;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        animation: popup 1s;
+    }
+    
+    /* The button used to close the modal */
+    .closebtn {
+        text-decoration: none;
+        font-size: 50px;
+    }
+    
+    @keyframes popup{
+      from {top:-100px;opacity: 0;}
+      to {top:0px;opacity:1;}
+    }
+
+</style>
+</head>
+<body>
+
+<a href="#id01">Open Modal</a>
+
+<div id="id01" class="modal">
+    <div class="modal-box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ipsa! Deleniti asperiores ad quidem! Accusantium expedita temporibus sint distinctio unde illum exercitationem labore a facilis corporis! Inventore odio dolorum corrupti.
+        <a href="#" class="closebtn">×</a>
+    </div>
+</div>
+
+</body>
+</html>

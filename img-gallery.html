@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGE GALLERY</title>
+    <style> 
+        * {
+            border: 1px solid green;
+        }
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            display: grid; 
+            place-items: center;
+            place-content: center;
+            grid-template-columns: repeat(3, 25vw);
+            gap: 10px;
+        }
+        .container img {
+            width: 25vw;
+        }
+
+        @media(max-width: 500px) {
+            .container {
+                grid-template-columns: repeat(2, 25vw);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+            <img src="img/1.jpg">
+            <img src="img/1.jpg">
+            <img src="img/1.jpg">
+            <img src="img/1.jpg">
+            <img src="img/1.jpg">
+            <img src="img/1.jpg">
+    </div>
+
+
+</body>
+</html>
