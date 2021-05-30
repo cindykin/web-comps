@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLIDESHOW</title>
+    <style>
+        .slides{
+        width: 100%;
+        position: relative;
+        }
+
+        .slides .slide{
+        display: none;
+        }
+
+        .slides .slide img{
+        width: 100%;
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        .slides .navigation{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        }
+
+        .slides .navigation .prev, .slides .navigation .next{
+        cursor: pointer;
+        padding: 16px;
+        font-weight: bold;
+        font-size: 20px;
+        color: white;
+        background: rgba(0,0,0,0.2);
+        user-select: none;
+        transition: 0.6s ease;
+        }
+
+        .slides .navigation .prev:hover, .slides .navigation .next:hover{
+        background: rgba(0,0,0,1);
+        }
+
+        @keyframes fade {
+        from{opacity: 0.3}
+        to {opacity: 1}
+        }
+
+        @media (max-width: 992px){
+        .slides .navigation .prev, .slides .navigation .next{
+            font-size: 18px;
+            padding: 13px;
+        }
+        }
+
+        @media (max-width: 768px){
+        .slides .navigation .prev, .slides .navigation .next{
+            font-size: 15px;
+            padding: 10px;
+        }
+        }
+
+        @media (max-width: 576px){
+        .slides .navigation .prev, .slides .navigation .next{
+            font-size: 12px;
+            padding: 7px;
+        }
+        }
+
+        @media (max-width: 360px){
+        .slides .navigation .prev, .slides .navigation .next{
+            font-size: 11px;
+            padding: 6px;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="slides">
+        <div class="slide">
+            <img src="img/3.jpg">
+        </div>
+        <div class="slide">
+            <img src="img/4.jpg">
+        </div>
+        <div class="slide">
+            <img src="img/5.jpg">
+        </div>
+        <div class="navigation">
+            <a class="prev" onclick="plusSlide(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlide(-1)">&#10095;</a>
+        </div>
+    </div>
+
+
+    <script>
+    var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlide(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        if (n > slides.length)
+        {
+          slideIndex = 1;
+        }
+        if (n < 1)
+        {
+          slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++)
+        {
+          slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+      }
+
+      
+        // let slideNo = 1;
+        
+
+        // const showSlide = (no) => {
+        //     const slides = document.getElementsByClassName('slide');
+            
+        //     // klo sdh slide terakhir, reset lagi
+        //     if(n > slides.length) {
+        //         slideNo = 1
+        //     }
+
+        //     // ini mungkin klo tersesat
+        //     if(no < 1) {
+        //         slideNo = slides.length
+        //     }
+
+        //     for(let i = 0; i < slides.length; i++) {
+        //         slides[i].style.display = "none"
+        //     }
+
+        //     slides[slideNo-1].style.display = "block"
+        // }
+
+        // showSlide(slideNo)
+
+        // const plusSlide = (no) => {
+        //     showSlide(slideNo += no)
+        // }
+
+
+    </script>
+</body>
+</html>
