@@ -33,7 +33,7 @@
 
         .slides .navigation .prev, .slides .navigation .next{
         cursor: pointer;
-        padding: 16px;
+        padding: 15px;
         font-weight: bold;
         font-size: 20px;
         color: white;
@@ -51,31 +51,12 @@
         to {opacity: 1}
         }
 
-        @media (max-width: 992px){
-        .slides .navigation .prev, .slides .navigation .next{
-            font-size: 18px;
-            padding: 13px;
-        }
-        }
 
-        @media (max-width: 768px){
+        /* tampilan responsive btn */
+        @media (max-width: 500px){
         .slides .navigation .prev, .slides .navigation .next{
-            font-size: 15px;
-            padding: 10px;
-        }
-        }
-
-        @media (max-width: 576px){
-        .slides .navigation .prev, .slides .navigation .next{
-            font-size: 12px;
+            font-size: 10px;
             padding: 7px;
-        }
-        }
-
-        @media (max-width: 360px){
-        .slides .navigation .prev, .slides .navigation .next{
-            font-size: 11px;
-            padding: 6px;
         }
         }
 
@@ -101,36 +82,42 @@
 
 
     <script>
-    var slideIndex = 1;
-      showSlides(slideIndex);
+    
+    function showSlides(no) {
+        let slides = document.getElementsByClassName("slide");
 
-      function plusSlide(n) {
-        showSlides(slideIndex += n);
-      }
-
-      function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("slide");
-        if (n > slides.length)
-        {
+        if (no > slides.length){
           slideIndex = 1;
         }
-        if (n < 1)
-        {
+
+        if (no < 1){
           slideIndex = slides.length
         }
-        for (i = 0; i < slides.length; i++)
-        {
-          slides[i].style.display = "none";
+
+        for (let i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
         }
         slides[slideIndex-1].style.display = "block";
-      }
+    }
+    
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // setInterval(() => {
+        function plusSlide(no) {
+            showSlides(slideIndex += no);
+        } 
+    // }, 3000);
 
-      
-        // let slideNo = 1;
-        
 
-        // const showSlide = (no) => {
+    setInterval(function() {
+        plusSlide(-1)
+    }, 3000);
+
+    // let slideNo = 1;
+    
+    
+    // const showSlide = (no) => {
         //     const slides = document.getElementsByClassName('slide');
             
         //     // klo sdh slide terakhir, reset lagi
